@@ -1,0 +1,124 @@
+.custom-button {
+  display: inline-block;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button Variants */
+.button-primary {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.button-secondary {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+}
+
+.button-accent {
+  background-color: var(--accent-color);
+  color: var(--text-dark);
+}
+
+.button-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: none;
+}
+
+.button-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+/* Button Sizes */
+.button-small {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+.button-medium {
+  padding: 12px 24px;
+  font-size: 1rem;
+}
+
+.button-large {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+}
+
+/* Full Width Button */
+.button-full-width {
+  display: block;
+  width: 100%;
+}
+
+/* Hover and Active States */
+.custom-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+}
+
+.custom-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Disabled State */
+.custom-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Ripple Effect */
+.custom-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 100%;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.custom-button:focus:not(:active)::after {
+  animation: ripple 0.5s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(40);
+    opacity: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .button-medium {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .button-large {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+} 

@@ -1,0 +1,103 @@
+.navbar {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 15px 0;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-text {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.navbar-links li a {
+  color: var(--text-dark);
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  background-color: rgba(74, 159, 255, 0.1);
+  color: var(--primary-color);
+}
+
+.navbar-links li a.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    gap: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .navbar-links.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+} 
